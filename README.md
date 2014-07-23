@@ -42,6 +42,10 @@ to explicitly require any of dependencies, otherwise it will raise exception.
 ## Available elements
 
 * [paper-button](http://www.polymer-project.org/docs/elements/paper-elements.html#paper-button)
+* [paper-checkbox](http://www.polymer-project.org/docs/elements/paper-elements.html#paper-checkbox)
+* [paper-radio-button](http://www.polymer-project.org/docs/elements/paper-elements.html#paper-radio-button)
+* [paper-ripple](http://www.polymer-project.org/docs/elements/paper-elements.html#paper-ripple)
+* [paper-shadow](http://www.polymer-project.org/docs/elements/paper-elements.html#paper-shadow)
 
 ## Contributing
 
