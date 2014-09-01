@@ -1,0 +1,7 @@
+{
+  "name": "polymer-paper-rails",
+  "private": true,
+  "dependencies": {
+    "core-elements": "Polymer/paper-elements#0.4.0"
+  }
+}

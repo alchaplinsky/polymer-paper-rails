@@ -30,10 +30,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 #ink {
   position: absolute;
-  top: -17px;
-  left: -17px;
-  width: 50px;
-  height: 50px;
+  top: -16px;
+  left: -16px;
+  width: 48px;
+  height: 48px;
   color: #5a5a5a;
 }
 
@@ -44,7 +44,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 #offRadio {
   position: absolute;
   top: 0px;
-  left: 0px;
+  left: 0px; 
   width: 12px;
   height: 12px;
   border-radius: 50%;
@@ -89,10 +89,16 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   pointer-events: none;
 }
 
-:host([disabled]) #offRadio {
-  border-color: #eaeaea !important;
+:host([disabled]) #onRadio {
+  display: none;
 }
 
-:host([disabled]) #onRadio {
-  background-color: #eaeaea !important;
+:host([disabled]) #offRadio {
+  opacity: 0.33;
+  border-color: #5a5a5a;
+}
+
+:host([disabled][checked]) #offRadio {
+  opacity: 0.33;
+  background-color: #5a5a5a;
 }

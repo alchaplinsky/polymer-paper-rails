@@ -32,10 +32,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 #ink {
   position: absolute;
-  top: -29px;
-  left: -29px;
-  width: 76px;
-  height: 76px;
+  top: -15px;
+  left: -15px;
+  width: 48px;
+  height: 48px;
   color: #5a5f5a;
 }
 
@@ -47,7 +47,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   position: absolute;
   box-sizing: border-box;
   top: 0px;
-  left: 0px;
+  left: 0px; 
   width: 18px;
   height: 18px;
   border: solid 2px;
@@ -114,7 +114,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   100% {
     -webkit-transform: rotate(45deg);
     top: -4px;
-    left: 6px;
+    left: 6px; 
     width: 10px;
     height: 21px;
     border-right-width: 2px;
@@ -133,7 +133,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   100% {
     transform: rotate(45deg);
     top: -4px;
-    left: 6px;
+    left: 6px; 
     width: 10px;
     height: 21px;
     border-right-width: 2px;
@@ -168,7 +168,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 @-webkit-keyframes checkmark-shrink {
   0% {
     top: -4px;
-    left: 6px;
+    left: 6px; 
     width: 10px;
     height: 21px;
     border-right-width: 2px;
@@ -185,7 +185,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 @keyframes checkmark-shrink {
   0% {
     top: -4px;
-    left: 6px;
+    left: 6px; 
     width: 10px;
     height: 21px;
     border-right-width: 2px;
@@ -258,5 +258,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 }
 
 :host([disabled]) #checkbox {
-  border-color: #eaeaea !important;
+  opacity: 0.33;
+  border-color: #5a5a5a;
 }

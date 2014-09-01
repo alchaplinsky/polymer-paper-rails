@@ -1,11 +1,24 @@
+/*
+ * @license
+ * Copyright (c) 2014 The Polymer Project Authors. All rights reserved.
+ * This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+ * The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+ * The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+ * Code distributed by Google as part of the polymer project is also
+ * subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+ */
+
 html /deep/ paper-item {
   display: block;
   position: relative;
+  font-size: 16px;
   -webkit-user-select: none;
   user-select: none;
   cursor: pointer;
-  height: 36px;
-  padding: 0 12px;
+  box-sizing: border-box;
+  height: 48px;
+  padding: 0 16px;
+  white-space: nowrap;
 }
 
 html /deep/ paper-item::shadow #ripple {

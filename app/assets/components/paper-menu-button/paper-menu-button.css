@@ -45,10 +45,11 @@ core-icon::shadow svg {
   fill: #c9c9c9;
 }
 
-#overlay {
-  display: block;
-	position: fixed;
-  border-radius: 3px;
+#menu {
+  position: fixed;
+  background-color: transparent;
+  padding-top: 8px;
+  padding-bottom: 8px;
 }
 
 .paper-menu-button-overlay-ink {
@@ -78,9 +79,4 @@ core-icon::shadow svg {
 	border-radius: 3px;
   background: #fff;
   opacity: 0;
-}
-
-#menu {
-	position: relative;
-  margin: 0;
 }
