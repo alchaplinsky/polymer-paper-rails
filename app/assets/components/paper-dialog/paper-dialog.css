@@ -46,7 +46,7 @@ h1 {
   padding: 4px 16px 20px;
 }
 
-polymer-next-selector { content: ':host > *'; }
+polyfill-next-selector { content: ':host > *'; }
 ::content > * {
   font: inherit;
 }

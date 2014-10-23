@@ -13,6 +13,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   cursor: default;
 }
 
+:host(:focus) {
+  outline: none;
+}
+
 #sliderContainer {
   position: relative;
   width: calc(100% - 32px);
@@ -92,6 +96,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   background-color: #3f51b5;
 }
 
+.transiting #sliderBar::shadow #activeProgress {
+  transition: width 0.08s ease;
+}
+
 #sliderKnob {
   position: absolute;
   left: 0;
@@ -100,7 +108,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   height: 32px;
 }
 
-#sliderKnob.transiting {
+.transiting > #sliderKnob {
   transition: left 0.08s ease;
 }
 

@@ -22,6 +22,32 @@ Theming
 Set `CoreStyle.g.paperInput.focusedColor` and `CoreStyle.g.paperInput.invalidColor` to theme
 the focused and invalid states.
 
+To add custom styling to only some elements, use these selectors:
+
+    html /deep/ paper-input[focused] .floated-label {
+        /* floating label color when the input has focus */
+        color: green;
+    }
+
+    html /deep/ paper-input .focused-underline,
+    html /deep/ paper-input .cursor {
+        /* line and cursor color when the input has focus */
+        background-color: green;
+    }
+
+    html /deep/ paper-input.invalid[focused] .floated-label,
+    html /deep/ paper-input[focused] .error-text,
+    html /deep/ paper-input[focused] .error-icon {
+        /* error text, icon, and floating label color when input is invalid */
+        color: salmon;
+    }
+
+    html /deep/ paper-input.invalid .focused-underline,
+    html /deep/ paper-input.invalid .cursor {
+        /* line and cursor color when the input is invalid */
+        background-color: salmon;
+    }
+
 @group Paper Elements
 @element paper-input
 @extends core-input
@@ -62,6 +88,22 @@ the focused and invalid states.
 
   <template>
 
+    <!--
+    Input tests:
+
+    - set value to integer 0
+    - various html5 input types
+    - sizing:
+      - single-line: size with CSS
+      - single-line: can fit to container
+      - multi-line: size with CSS
+      - multi-line: size with rows
+      - multi-line: can fit to container
+      - multi-line: grows with typing
+      - multi-line: max rows
+      - multi-line: max rows, scrolls after
+    -->
+
     <link href="paper-input.css" rel="stylesheet">
     <core-style ref="paper-input"></core-style>
 
@@ -70,8 +112,10 @@ the focused and invalid states.
       <span id="floatedLabelText" class="label-text">{{label}}</span>
     </div>
 
-    <div flex auto relative on-down="{{downAction}}" on-up="{{upAction}}">
+    <!-- <div class="input-body" flex auto relative on-down="{{downAction}}" on-up="{{upAction}}"> -->
+    <div class="input-body" flex auto relative>
 
+      <!-- the mirror sizes the input/textarea so it grows with typing -->
       <div id="mirror" class="mirror-text" invisible aria-hidden="true"></div>
 
       <div class="label" fit aria-hidden="true">
@@ -82,7 +126,10 @@ the focused and invalid states.
 
       <div class="cursor" invisible?="{{!cursorAnimated}}" animated?="{{cursorAnimated}}"></div>
 
-      <shadow></shadow>
+      <!-- size the input/textarea with a div, because the textarea has intrinsic size in ff -->
+      <div class="input-container" on-down="{{downAction}}" on-up="{{upAction}}">
+        <shadow></shadow>
+      </div>
 
     </div>
 
