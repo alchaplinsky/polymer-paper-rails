@@ -9,72 +9,93 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 <!--
 
-`paper-dropdown` is a control where the user can choose from an array of
-options in a drop-down menu. The currently selected option is displayed in
-the control.
+`paper-dropdown` is a `core-dropdown` with a `paper-shadow`. By default, it
+is animated on open with `paper-dropdown-transition`. Use this element with
+`paper-dropdown-menu` or `paper-menu-button` to implement UI controls that
+open a drop-down.
 
 Example:
 
-    <paper-dropdown selected="Financier" valueattr="label">
-        <paper-item label="Croissant"></paper-item>
-        <paper-item label="Donut"></paper-item>
-        <paper-item label="Financier"></paper-item>
-        <paper-item label="Madeleine"></paper-item>
-    </core-dropdown>
-
-This example renders a drop-down menu with 4 options, with the option
-`Financier` pre-selected.
+    <paper-dropdown>
+      Hi!
+    </paper-dropdown>
 
 Theming
 -------
 
-Style the drop-down menu with the `paper-dropdown::shadow #menu` selector.
+Style the background color of the dropdown with these selectors:
 
-Example:
-
-    paper-dropdown::shadow #menu {
-        background-color: #eee;
-        border: 1px solid #ccc;
+    paper-dropdown::shadow #ripple,
+    paper-dropdown::shadow #background {
+        background-color: green;
     }
 
 @group Paper Elements
 @element paper-dropdown
-@status beta
-@homepage github.io
+@extends core-dropdown
+@status unstable
 -->
 
-<!--
-Fired when an item's selection state is changed. This event is fired both
-when an item is selected or deselected. The `isSelected` detail property
-contains the selection state.
-
-@event core-select
-@param {Object} detail
-  @param {boolean} detail.isSelected true for selection and false for deselection
-  @param {Object} detail.item the item element
--->
 <link href="../polymer/polymer.html" rel="import">
-<link href="../core-icon/core-icon.html" rel="import">
-<link href="../core-icons/core-icons.html" rel="import">
-<link href="../core-popup-menu/core-popup-menu.html" rel="import">
+<link href="../core-dropdown/core-dropdown.html" rel="import">
 <link href="../paper-shadow/paper-shadow.html" rel="import">
 
-<polymer-element name="paper-dropdown">
+<link href="paper-dropdown-transition.html" rel="import">
+
+<style shim-shadowdom>
+  html /deep/ paper-dropdown {
+    position: absolute;
+    overflow: visible;
+    min-height: 40px;
+  }
+</style>
+
+<polymer-element name="paper-dropdown" extends="core-dropdown">
 <template>
 
-  <link href="paper-dropdown.css" rel="stylesheet">
+  <style>
+    #ripple {
+      background-color: #fff;
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.26);
+      opacity: 0;
+    }
 
-  <div id="control" layout horizontal selected?="{{selectedItem}}" on-tap="{{toggle}}">
-    <div flex>
-      {{selectedItem ? (selectedItem.label || selected) : label}}
-    </div>
-    <core-icon id="arrow" icon="{{opened ? 'arrow-drop-up' : 'arrow-drop-down'}}"></core-icon>
+    :host([halign=right]) #ripple {
+      left: auto;
+      right: 0;
+    }
+
+    :host([valign=bottom]) #ripple {
+      top: auto;
+      bottom: 0;
+    }
+
+    #background {
+      background-color: #fff;
+      border-radius: inherit;
+    }
+
+    #scroller {
+      overflow: auto;
+      box-sizing: border-box;
+    }
+  </style>
+
+  <div id="ripple"></div>
+
+  <div id="background" fit>
+    <paper-shadow fit></paper-shadow>
   </div>
 
-  <core-popup-menu id="menu" relatedTarget="{{$.control}}" opened="{{opened}}" halign="{{halign}}" valign="{{valign}}"selected="{{selected}}" selectedItem="{{selectedItem}}" selectedClass="{{selectedClass}}" valueattr="{{valueattr}}" selectedProperty="{{selectedProperty}}" selectedAttribute="{{selectedAttribute}}" on-core-select="{{selectAction}}">
-    <paper-shadow z="1" target="{{$.menu}}" hasPosition></paper-shadow>
-    <content select="*"></content>
-  </core-popup-menu>
+  <div id="scroller" relative>
+    <content></content>
+  </div>
 
 </template>
 <script>
@@ -82,107 +103,12 @@ contains the selection state.
   Polymer({
 
     publish: {
-
-      /**
-       * True if the menu is open.
-       *
-       * @attribute opened
-       * @type boolean
-       * @default false
-       */
-      opened: false,
-
-      /**
-       * A label for the control. The label is displayed if no item is selected.
-       *
-       * @attribute label
-       * @type string
-       * @default 'Select an item'
-       */
-      label: 'Select an item',
-
-      /**
-       * The currently selected element. By default this is the index of the item element.
-       * If you want a specific attribute value of the element to be used instead of the
-       * index, set `valueattr` to that attribute name.
-       *
-       * @attribute selected
-       * @type Object
-       * @default null
-       */
-      selected: null,
-
-      /**
-       * Specifies the attribute to be used for "selected" attribute.
-       *
-       * @attribute valueattr
-       * @type string
-       * @default 'name'
-       */
-      valueattr: 'name',
-
-      /**
-       * Specifies the CSS class to be used to add to the selected element.
-       * 
-       * @attribute selectedClass
-       * @type string
-       * @default 'core-selected'
-       */
-      selectedClass: 'core-selected',
-
-      /**
-       * Specifies the property to be used to set on the selected element
-       * to indicate its active state.
-       *
-       * @attribute selectedProperty
-       * @type string
-       * @default ''
-       */
-      selectedProperty: '',
-
-      /**
-       * Specifies the attribute to set on the selected element to indicate
-       * its active state.
-       *
-       * @attribute selectedAttribute
-       * @type string
-       * @default 'active'
-       */
-      selectedAttribute: 'selected',
-
-      /**
-       * The currently selected element.
-       *
-       * @attribute selectedItem
-       * @type Object
-       * @default null
-       */
-      selectedItem: null,
-
-      /**
-       * Horizontally align the overlay with the control.
-       * @attribute halign
-       * @type "left"|"right"
-       * @default "left"
-       */
-      halign: {value: 'left', reflect: true},
-
-      /**
-       * Vertically align the dropdown menu with the control.
-       * @attribute valign
-       * @type "top"|"bottom"
-       * @default "bottom"
-       */
-      valign: {value: 'bottom', reflect: true}
-
+      transition: 'paper-dropdown-transition'
     },
 
-    toggle: function() {
-      this.opened = !this.opened;
-    },
-
-    selectAction: function() {
-      this.opened = false;
+    ready: function() {
+      this.super();
+      this.sizingTarget = this.$.scroller;
     }
 
   });
