@@ -40,4 +40,6 @@ app/assets/components/**/*.sh
 app/assets/components/**/*.yml
 app/assets/components/**/*.conf
 
+# Ignore all files in web-animagions-js except build targets.
 app/assets/components/web-animations-js/*
+!app/assets/components/web-animations-js/web-animations*.min.js
