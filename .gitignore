@@ -39,3 +39,5 @@ app/assets/components/**/*.js.map
 app/assets/components/**/*.sh
 app/assets/components/**/*.yml
 app/assets/components/**/*.conf
+
+app/assets/components/web-animations-js/*
