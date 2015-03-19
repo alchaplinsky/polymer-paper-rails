@@ -29,6 +29,7 @@ app/assets/components/**/index.html
 app/assets/components/**/demo.html
 app/assets/components/**/demo2.html
 app/assets/components/**/test
+app/assets/components/**/tests
 app/assets/components/**/demos
 app/assets/components/**/examples
 app/assets/components/**/bin
