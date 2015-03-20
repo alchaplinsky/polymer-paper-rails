@@ -43,3 +43,6 @@ app/assets/components/**/*.conf
 # Ignore all files in web-animagions-js except build targets.
 app/assets/components/web-animations-js/*
 !app/assets/components/web-animations-js/web-animations*.min.js
+
+# Ignore polymer to prevent conflicts with polymer-rails gem.
+app/assets/components/polymer
