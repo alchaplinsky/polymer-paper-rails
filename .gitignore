@@ -29,6 +29,7 @@ app/assets/components/**/index.html
 app/assets/components/**/demo.html
 app/assets/components/**/demo2.html
 app/assets/components/**/test
+app/assets/components/**/tests
 app/assets/components/**/demos
 app/assets/components/**/examples
 app/assets/components/**/bin
@@ -38,3 +39,10 @@ app/assets/components/**/*.js.map
 app/assets/components/**/*.sh
 app/assets/components/**/*.yml
 app/assets/components/**/*.conf
+
+# Ignore all files in web-animagions-js except build targets.
+app/assets/components/web-animations-js/*
+!app/assets/components/web-animations-js/web-animations*.min.js
+
+# Ignore polymer to prevent conflicts with polymer-rails gem.
+app/assets/components/polymer

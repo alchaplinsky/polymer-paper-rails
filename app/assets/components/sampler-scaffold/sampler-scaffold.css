@@ -63,7 +63,7 @@ polyfill-next-selector { content: 'core-menu#menu core-item.core-selected'; }
 /* card */
 #card {
   display: block;
-  margin: 64px 120px 60px 5px;
+  margin: 64px 120px 60px 0;
   background-color: #fff;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
   border-radius: 2px;
