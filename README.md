@@ -30,7 +30,7 @@ gem 'polymer-rails'
 gem 'polymer-paper-rails'
 ```
 
-After runnign `bundle install` require needed paper elements into your `application.html` manifest file.
+After running `bundle install` require needed paper elements into your `application.html` manifest file.
 
     //= require polymer/polymer
     //= require paper-button/paper-button
@@ -58,7 +58,7 @@ to explicitly require any of dependencies, otherwise it will raise exception.
 * [paper-shadow](https://www.polymer-project.org/0.5/docs/elements/paper-shadow.html)
 * [paper-slider](https://www.polymer-project.org/0.5/docs/elements/paper-slider.html)
 * [paper-tabs](https://www.polymer-project.org/0.5/docs/elements/paper-tabs.html)
-* [paper-toast](https://www.polymer-project.org/0.5/docs/elements/paper-taoast.html)
+* [paper-toast](https://www.polymer-project.org/0.5/docs/elements/paper-toast.html)
 * [paper-toggle-button](https://www.polymer-project.org/0.5/docs/elements/paper-toggle-button.html)
 
 ## Contributing
