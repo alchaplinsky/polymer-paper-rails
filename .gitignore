@@ -15,34 +15,21 @@ spec/reports
 test/tmp
 test/version_tmp
 tmp
-app/assets/.components
-app/assets/components/polymer-test-tools
-app/assets/components/core-docs
-app/assets/components/core-tests
-app/assets/components/**/.bower.json
-app/assets/components/**/bower.json
-app/assets/components/**/README.md
-app/assets/components/**/README.html
-app/assets/components/**/CHANGES.html
-app/assets/components/**/COPYING
-app/assets/components/**/index.html
-app/assets/components/**/demo.html
-app/assets/components/**/demo2.html
-app/assets/components/**/test
-app/assets/components/**/tests
-app/assets/components/**/demos
-app/assets/components/**/examples
-app/assets/components/**/bin
-app/assets/components/**/tutorial
-app/assets/components/**/*.log
-app/assets/components/**/*.js.map
-app/assets/components/**/*.sh
-app/assets/components/**/*.yml
-app/assets/components/**/*.conf
+/app/assets/components/polymer
+/app/assets/components/webcomponentsjs
+/app/assets/components/iron-*
+/app/assets/components/neon-*
 
-# Ignore all files in web-animagions-js except build targets.
-app/assets/components/web-animations-js/*
-!app/assets/components/web-animations-js/web-animations*.min.js
 
-# Ignore polymer to prevent conflicts with polymer-rails gem.
-app/assets/components/polymer
+/app/assets/components/**/test
+/app/assets/components/**/demo
+/app/assets/components/**/bin
+/app/assets/components/**/doc
+/app/assets/components/**/man
+/app/assets/components/**/bower.json
+/app/assets/components/**/package.json
+/app/assets/components/**/index.html
+/app/assets/components/**/README.md
+/app/assets/components/**/LICENSE
+/app/assets/components/**/CONTRIBUTING.md
+/app/assets/components/**/hero.svg
