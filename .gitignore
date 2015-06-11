@@ -17,8 +17,6 @@ test/version_tmp
 tmp
 /app/assets/components/polymer
 /app/assets/components/webcomponentsjs
-/app/assets/components/iron-*
-/app/assets/components/neon-*
 
 
 /app/assets/components/**/test
