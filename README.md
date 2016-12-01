@@ -1,5 +1,5 @@
 # Warning
-#### Since `paper elements` have circular dependencies with `iron` and `neon` elements, consider using [polymer-elements-rails](https://github.com/alchapone/polymer-elements-rails) gem `v1.0.0.pre.rc.1`
+#### Since `paper elements` have circular dependencies with `iron` and `neon` elements, consider using [polymer-elements-rails](https://github.com/alchapone/polymer-elements-rails) gem `v1.0.x`
 
 The Paper elements are a set of UI elements that implement the [material design system](http://www.google.com/design/spec/material-design/introduction.html).
 
